@@ -9,18 +9,18 @@ function CreateLetter() {
     })
 
     const handleSubmit = async(e) => {
-        e.preventDefault()
         const formData = new FormData();
         formData.append("message", formValue.message)
-      
+        e.preventDefault()
         try {
           // make axios post request
           const response = await axios({
             method: "post",
             url: "http://localhost:5000/create",
-            data: formData
+            data: formData,
+            headers: { 'Content-Type': 'application/json;charset=utf-8' }
           });
-          console.log(response)
+          console.log(response.data)
         } catch(error) {
           console.log(error)
         }
