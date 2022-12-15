@@ -31,7 +31,7 @@ router.route('/create').post((req, res) => {
     .catch(err => {
       res.json({err: 'Letter creation error'})
     })
-    console.log(req)
+    console.log(req.body)
 })
 
 router.route('/delete/:_id').delete((req, res) => {
