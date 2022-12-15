@@ -14,13 +14,12 @@ router.route('/').get((req, res) => {
 
 router.route('/letters/:_id').get((req, res) => {
   const id = req.params._id
-  Quiz.findById(id)
+  Letter.findById(id)
     .then(letter => res.json(letter))
     .catch(err => res.json('error: ' + err))
 })
 
 router.route('/create').post((req, res) => {
-  console.log(req.body)
   const newLetter = new Letter({
     message: req.body.message
   })
@@ -32,7 +31,14 @@ router.route('/create').post((req, res) => {
     .catch(err => {
       res.json({err: 'Letter creation error'})
     })
-    console.log(req.body)
+    console.log(req)
+})
+
+router.route('/delete/:_id').delete((req, res) => {
+  const id = req.params._id
+  Letter.findByIdAndDelete(id)
+    .then(letter => res.json(letter))
+    .catch(err => res.json('error ' + err))
 })
 
 module.exports = router;

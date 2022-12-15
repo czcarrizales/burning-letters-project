@@ -6,7 +6,7 @@ const letterSchema = new Schema({
     createdAt: {type: Date, default: Date.now}
 })
 
-letterSchema.index({createdAt: 1}, {expireAfterSeconds: 30})
+letterSchema.index({createdAt: 1}, {expireAfterSeconds: 60})
 
 const Letter = mongoose.model('Letter', letterSchema)
 
