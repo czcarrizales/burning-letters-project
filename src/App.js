@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './Navbar'
 import axios from 'axios'
 import { useState, useEffect } from 'react';
+import CreateLetter from './CreateLetter';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
         {letter}
         <button onClick={getMessage}>See New Letter</button>
       </div>
+      <CreateLetter />
     </div>
   );
 }
