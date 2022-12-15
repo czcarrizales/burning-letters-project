@@ -1,0 +1,27 @@
+.create-letter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-letter-container form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 200px;
+}
+
+.create-letter-container form button {
+    margin-top: 1.5em;
+    height: 2.5em;
+    background-color: rgb(165, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.create-letter-container textarea {
+    border: 1px solid black;
+}
