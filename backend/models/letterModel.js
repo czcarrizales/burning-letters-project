@@ -6,8 +6,6 @@ const letterSchema = new Schema({
     createdAt: {type: Date, default: Date.now}
 })
 
-letterSchema.index({createdAt: 1}, {expireAfterSeconds: 3600})
-
 const Letter = mongoose.model('Letter', letterSchema)
 
 module.exports = Letter
