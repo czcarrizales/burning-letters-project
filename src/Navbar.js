@@ -2,7 +2,7 @@ import './Navbar.css';
 
 function Navbar() {
   return (
-    <div>
+    <div className='nav'>
       navbar
     </div>
   );
