@@ -17,4 +17,6 @@
 .letter-container button {
   margin-top: 2em;
   height: 30px;
+  border: none;
+  
 }
