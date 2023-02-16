@@ -7,46 +7,49 @@ function CreateLetter() {
     message: "",
   });
   const [creatingLetter, setCreatingLetter] = useState(true);
-  const [validForm, setValidForm] = useState(true)
-  const [formValueLength, setFormValueLength] = useState(0)
-  const [validFormLength, setValidFormLength] = useState(true)
+  const [validForm, setValidForm] = useState(true);
+  const [formValueLength, setFormValueLength] = useState(0);
+  const [validFormLength, setValidFormLength] = useState(true);
+  const [submittingLetter, setSubmittingLetter] = useState(false);
 
   useEffect(() => {
-    console.log('checking if valid form')
-  }, [validForm])
+    console.log("checking if valid form");
+  }, [validForm]);
 
   useEffect(() => {
-    console.log('form value message changed')
-    if (formValue.message !== '') {
-      setValidForm(true)
+    console.log("form value message changed");
+    if (formValue.message !== "") {
+      setValidForm(true);
     }
     if (formValueLength >= 20) {
-      setValidFormLength(true)
+      setValidFormLength(true);
     }
-  }, [formValue, validFormLength])
+  }, [formValue, validFormLength]);
 
   const handleSubmit = async (e) => {
-    if (formValue.message == '' || formValue.message == undefined) {
-      e.preventDefault()
-      setValidForm(false)
-      return console.log('cannot be empty')
+    if (formValue.message == "" || formValue.message == undefined) {
+      e.preventDefault();
+      setValidForm(false);
+      return console.log("cannot be empty");
     }
     if (formValueLength < 20) {
-      e.preventDefault()
-      setValidFormLength(false)
-      return console.log('must be at least 20 characters')
+      e.preventDefault();
+      setValidFormLength(false);
+      return console.log("must be at least 20 characters");
     }
     const formData = new FormData();
     formData.append("message", formValue.message);
     e.preventDefault();
     try {
       // make axios post request
+      setSubmittingLetter(true);
       const response = await axios({
         method: "post",
         url: "https://burning-letters-api.onrender.com/create",
         data: formData,
         headers: { "Content-Type": "application/json;charset=utf-8" },
       });
+      setSubmittingLetter(false);
       setCreatingLetter(false);
       console.log(response.data);
     } catch (error) {
@@ -56,16 +59,16 @@ function CreateLetter() {
 
   const handleChange = (event) => {
     setFormValue({ ...formValue, [event.target.name]: event.target.value });
-    setFormValueLength(event.target.value.length)
+    setFormValueLength(event.target.value.length);
     console.log(formValue);
-    console.log(event.target.value.length)
+    console.log(event.target.value.length);
   };
 
   const createAnother = () => {
-    setFormValue('')
-    setCreatingLetter(true)
-    console.log(formValue)
-  }
+    setFormValue("");
+    setCreatingLetter(true);
+    console.log(formValue);
+  };
 
   return (
     <div className="create-letter-container">
@@ -83,13 +86,17 @@ function CreateLetter() {
             onChange={handleChange}
           ></textarea>
           <p className="form-value-length">{formValueLength}/200</p>
-          {!validForm && <div className="create-letter-validation">
-            <p>Letter cannot be empty.</p>
-          </div>}
-          {!validFormLength && <div className="create-letter-length-validation">
-            <p>Letter must be at least 20 characters long.</p>
-          </div>}
-          <button type="submit">Submit</button>
+          {!validForm && (
+            <div className="create-letter-validation">
+              <p>Letter cannot be empty.</p>
+            </div>
+          )}
+          {!validFormLength && (
+            <div className="create-letter-length-validation">
+              <p>Letter must be at least 20 characters long.</p>
+            </div>
+          )}
+          {submittingLetter ? <p className="submitting-container">Submitting...</p> : <button type="submit">Submit</button>}
         </form>
       ) : (
         <div className="create-another-container">
