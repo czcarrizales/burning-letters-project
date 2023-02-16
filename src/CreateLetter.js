@@ -8,6 +8,8 @@ function CreateLetter() {
   });
   const [creatingLetter, setCreatingLetter] = useState(true);
   const [validForm, setValidForm] = useState(true)
+  const [formValueLength, setFormValueLength] = useState(0)
+  const [validFormLength, setValidFormLength] = useState(true)
 
   useEffect(() => {
     console.log('checking if valid form')
@@ -18,13 +20,21 @@ function CreateLetter() {
     if (formValue.message !== '') {
       setValidForm(true)
     }
-  }, [formValue])
+    if (formValueLength >= 20) {
+      setValidFormLength(true)
+    }
+  }, [formValue, validFormLength])
 
   const handleSubmit = async (e) => {
     if (formValue.message == '' || formValue.message == undefined) {
       e.preventDefault()
       setValidForm(false)
       return console.log('cannot be empty')
+    }
+    if (formValueLength < 20) {
+      e.preventDefault()
+      setValidFormLength(false)
+      return console.log('must be at least 20 characters')
     }
     const formData = new FormData();
     formData.append("message", formValue.message);
@@ -46,7 +56,9 @@ function CreateLetter() {
 
   const handleChange = (event) => {
     setFormValue({ ...formValue, [event.target.name]: event.target.value });
+    setFormValueLength(event.target.value.length)
     console.log(formValue);
+    console.log(event.target.value.length)
   };
 
   const createAnother = () => {
@@ -70,8 +82,12 @@ function CreateLetter() {
             value={formValue.message}
             onChange={handleChange}
           ></textarea>
+          <p className="form-value-length">{formValueLength}/200</p>
           {!validForm && <div className="create-letter-validation">
             <p>Letter cannot be empty.</p>
+          </div>}
+          {!validFormLength && <div className="create-letter-length-validation">
+            <p>Letter must be at least 20 characters long.</p>
           </div>}
           <button type="submit">Submit</button>
         </form>
