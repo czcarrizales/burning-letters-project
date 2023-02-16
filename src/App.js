@@ -3,6 +3,8 @@ import Navbar from './Navbar'
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 import CreateLetter from './CreateLetter';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ViewLetter from './ViewLetter';
 
 function App() {
 
@@ -25,14 +27,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Navbar />
-      <div className='letter-container'>
-        {letter}
-        <button onClick={getMessage}>See New Letter</button>
-      </div>
-      <CreateLetter />
-    </div>
+    <BrowserRouter>
+    <Navbar />
+    <Routes>
+      <Route path='/view-letter' element={<ViewLetter/>} />
+      <Route path='/create-letter' element={<CreateLetter/>}/>
+    </Routes>
+    </BrowserRouter>
   );
 }
 
