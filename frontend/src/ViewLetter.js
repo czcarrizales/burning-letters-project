@@ -34,7 +34,7 @@ function ViewLetter() {
             getMessage()
         }
       })
-      .catch(console.log("OH NOOOOOO"));
+      .catch(console.log("error occured"));
   }
 
   return (
