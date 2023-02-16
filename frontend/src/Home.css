@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-size: 1.5rem;
     margin-left: 2em;
     margin-right: 2em;
     color: white;
@@ -24,6 +23,10 @@
     color: white;
 }
 
+.home-container p {
+    font-size: 1.7rem;
+}
+
 .home-container h1 {
     font-size: 2.5rem;
 }
@@ -31,4 +34,30 @@
 .home-container a:nth-last-child(1) {
     background-color: white;
     color: black;
+}
+
+@media (min-width: 600px) {
+    .home-container {
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+
+    .home-container a {
+        max-width: 10em;
+    }
+
+    .home-container p {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .home-container {
+        margin-right: 6em;
+        margin-left: 6em;
+    }
+
+    .home-container p {
+        font-size: 3rem;
+    }
 }
