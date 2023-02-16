@@ -39,7 +39,7 @@ function ViewLetter() {
 
   return (
     <div className="view-letter-container">
-      <p>{loading ? 'loading...' : letter}</p>
+      {loading ? <p>loading...</p> : <p>{letter}</p>}
       <button onClick={getMessage}>View New Letter</button>
     </div>
   );
