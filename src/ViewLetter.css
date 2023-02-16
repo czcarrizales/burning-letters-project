@@ -8,6 +8,10 @@
     color: white;
     font-size: 2.5rem;
     font-family: 'Caveat', cursive;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
 .view-letter-container p {
@@ -16,6 +20,11 @@
     align-items: center;
     margin: 1.5em;
     min-height: 10em;
+    max-width: 15em;
+    word-wrap: break-all;
+    white-space: normal;
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 .view-letter-container button {
