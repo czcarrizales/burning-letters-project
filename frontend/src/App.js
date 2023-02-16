@@ -16,7 +16,7 @@ function App() {
   }, [])
 
   function getMessage() {
-    axios.get('http://localhost:5000')
+    axios.get('https://burning-letters-api.onrender.com/')
       .then((response) => {
         const randomMessage = response.data[Math.floor(Math.random() * response.data.length)].message
         setLetter(randomMessage)

@@ -19,7 +19,7 @@ function ViewLetter() {
   function getMessage() {
     setLoading(true)
     axios
-      .get("http://localhost:5000")
+      .get("https://burning-letters-api.onrender.com/")
       .then((response) => {
         const index = randomNumber(response.data.length);
         console.log(index)
