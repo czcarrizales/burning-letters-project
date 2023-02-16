@@ -26,7 +26,7 @@ function ViewLetter() {
 
   return (
     <div className="view-letter-container">
-        {letter}
+        <p>{letter}</p>
         <button onClick={getMessage}>View New Letter</button>
         </div>
   );
