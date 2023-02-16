@@ -4,7 +4,7 @@ import "./ViewLetter.css";
 
 function ViewLetter() {
   const [letter, setLetter] = useState("no message");
-  const [letterIndex, setLetterIndex] = useState();
+  const [letterIndex, setLetterIndex] = useState(0);
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
