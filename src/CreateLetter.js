@@ -37,7 +37,7 @@ function CreateLetter() {
     <div className='create-letter-container'>
         <h1>Create Letter</h1>
         <form onSubmit={handleSubmit}>
-            <textarea type='text' name="message" placeholder="enter message" rows="5" value={formValue.message} onChange={handleChange}></textarea>
+            <textarea type='text' name="message" placeholder="Write..." rows="5" maxLength={200} value={formValue.message} onChange={handleChange}></textarea>
             <button type='submit'>Submit</button>
         </form>
     </div>
