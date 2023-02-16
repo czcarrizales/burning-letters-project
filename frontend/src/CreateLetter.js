@@ -43,7 +43,7 @@ function CreateLetter() {
       // make axios post request
       const response = await axios({
         method: "post",
-        url: "https://burning-letters-api.onrender.com//create",
+        url: "https://burning-letters-api.onrender.com/create",
         data: formData,
         headers: { "Content-Type": "application/json;charset=utf-8" },
       });
