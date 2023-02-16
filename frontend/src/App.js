@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import CreateLetter from './CreateLetter';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ViewLetter from './ViewLetter';
+import Home from './Home';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
     <BrowserRouter>
     <Navbar />
     <Routes>
+      <Route path='/' exact element={<Home />} />
       <Route path='/view-letter' element={<ViewLetter/>} />
       <Route path='/create-letter' element={<CreateLetter/>}/>
     </Routes>
