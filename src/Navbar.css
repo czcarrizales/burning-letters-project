@@ -1,8 +1,17 @@
 .nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     background-color: rgb(122, 0, 0);
     color: white;
     height: 50px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: rgb(255, 142, 142);
 }
