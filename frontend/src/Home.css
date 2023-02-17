@@ -61,3 +61,17 @@
         font-size: 3rem;
     }
 }
+
+@media(min-width: 1200px) {
+    .home-container {
+        margin-right: 10em;
+        margin-left: 10em;
+    }
+}
+
+@media (min-width: 1500px) {
+    .home-container {
+        margin-right: 25em;
+        margin-left: 25em;
+    }
+}
